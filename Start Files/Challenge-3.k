@@ -46,3 +46,40 @@ function down() {
 }
 
 //-----------------------Actual Program-----------------------------
+
+function Hike(){
+	right();
+	ascend();
+	putBeeper();
+	descend();
+}
+
+
+function ascend(){
+	while(frontIsBlocked()){
+		turnLeft();
+		move();
+		if(rightIsClear()){
+			turnRight();
+			move();
+		}
+	}
+}
+
+
+function descend(){
+	while(rightIsBlocked()){
+		move();
+		if(frontIsClear()){
+			fall();
+		} else {turnAround();}
+	}
+}
+
+function fall(){
+	turnRight();
+	move();
+	turnLeft();
+}
+
+
